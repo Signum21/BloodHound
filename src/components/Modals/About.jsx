@@ -71,11 +71,11 @@ const About = () => {
                         href='#'
                         onClick={() => {
                             openLink(
-                                'https://www.github.com/BloodHoundAD/BloodHound'
+                                'https://www.github.com/Signum21/BloodHound'
                             );
                         }}
                     >
-                        https://www.github.com/BloodHoundAD/BloodHound
+                        https://www.github.com/Signum21/BloodHound
                     </a>
                 </h5>
                 <h5>

@@ -7,3 +7,6 @@ npm-debug.log
 graph.json
 .DS_Store
 .idea
+.github/
+docs/
+Collectors/

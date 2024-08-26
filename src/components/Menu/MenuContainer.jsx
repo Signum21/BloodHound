@@ -37,6 +37,8 @@ const IngestFuncMap = {
     ous: NewIngestion.buildOuJsonNew,
     gpos: NewIngestion.buildGpoJsonNew,
     containers: NewIngestion.buildContainerJsonNew,
+	templates: NewIngestion.buildTemplateJsonNew,
+    cas: NewIngestion.buildCaJsonNew,
     azure: NewIngestion.convertAzureData,
 };
 

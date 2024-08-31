@@ -6,6 +6,7 @@ import { Table } from 'react-bootstrap';
 import NodeCypherLink from './Components/NodeCypherLink';
 import NodeCypherLinkComplex from './Components/NodeCypherLinkComplex';
 import NodeCypherNoNumberLink from './Components/NodeCypherNoNumberLink';
+import MappedNodeProps from './Components/MappedNodeProps';
 import { AppContext } from '../../../AppContext';
 
 const BaseNodeData = ({}) => {
@@ -44,6 +45,10 @@ const BaseNodeData = ({}) => {
             setObjectid(null);
             setVisible(false);
         }
+    };
+
+	const displayMap = {
+        objectid: 'Object ID',
     };
 
     return objectid === null ? (
@@ -101,6 +106,14 @@ const BaseNodeData = ({}) => {
                     </Table>
                 </div>
             </CollapsibleSection>
+			
+			<hr></hr>
+
+			<MappedNodeProps
+				displayMap={displayMap}
+				properties={nodeProps}
+				label={label}
+			/>
         </div>
     );
 };

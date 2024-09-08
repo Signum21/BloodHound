@@ -312,6 +312,43 @@ const ComputerNodeData = () => {
                         </Table>
                     </div>
                 </CollapsibleSection>
+				
+                <CollapsibleSection header={'SHORTEST PATHS'}>
+                    <div className={styles.itemlist}>
+                        <Table>
+                            <thead></thead>
+                            <tbody className='searchable'>
+                                <NodeCypherLink
+                                    property='Shortest Paths to Anything'
+                                    target={objectid}
+                                    baseQuery={
+                                        'MATCH p = shortestPath((c:Computer {objectid: $objectid})-[r]->(a)) WHERE c <> a'
+                                    }
+                                    start={label}
+                                    distinct
+                                />
+                                <NodeCypherLink
+                                    property='All Shortest Paths to Anything'
+                                    target={objectid}
+                                    baseQuery={
+                                        'MATCH p = allShortestPaths((c:Computer {objectid: $objectid})-[*1..]->(a)) WHERE c <> a'
+                                    }
+                                    start={label}
+                                    distinct
+                                />
+                                <NodeCypherLink
+                                    property='All Paths to Anything'
+                                    target={objectid}
+                                    baseQuery={
+                                        'MATCH p = (c:Computer {objectid: $objectid})-[*1..]->(a) WHERE c <> a'
+                                    }
+                                    start={label}
+                                    distinct
+                                />
+                            </tbody>
+                        </Table>
+                    </div>
+                </CollapsibleSection>
 
                 <CollapsibleSection header={'OUTBOUND EXECUTION RIGHTS'}>
                     <div className={styles.itemlist}>

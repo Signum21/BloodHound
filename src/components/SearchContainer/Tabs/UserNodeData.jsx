@@ -296,6 +296,45 @@ const UserNodeData = () => {
                 </CollapsibleSection>
 
                 <hr></hr>
+				
+                <CollapsibleSection header={'SHORTEST PATHS'}>
+                    <div className={styles.itemlist}>
+                        <Table>
+                            <thead></thead>
+                            <tbody className='searchable'>
+                                <NodeCypherLink
+                                    property='Shortest Paths to Anything'
+                                    target={objectId}
+                                    baseQuery={
+                                        'MATCH p = shortestPath((u:User {objectid: $objectid})-[r]->(a)) WHERE u <> a'
+                                    }
+                                    start={label}
+                                    distinct
+                                />
+                                <NodeCypherLink
+                                    property='All Shortest Paths to Anything'
+                                    target={objectId}
+                                    baseQuery={
+                                        'MATCH p = allShortestPaths((u:User {objectid: $objectid})-[*1..]->(a)) WHERE u <> a'
+                                    }
+                                    start={label}
+                                    distinct
+                                />
+                                <NodeCypherLink
+                                    property='All Paths to Anything'
+                                    target={objectId}
+                                    baseQuery={
+                                        'MATCH p = (u:User {objectid: $objectid})-[*1..]->(a) WHERE u <> a'
+                                    }
+                                    start={label}
+                                    distinct
+                                />
+                            </tbody>
+                        </Table>
+                    </div>
+                </CollapsibleSection>
+
+                <hr></hr>
 
                 <CollapsibleSection header={'OUTBOUND OBJECT CONTROL'}>
                     <div className={styles.itemlist}>

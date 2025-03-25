@@ -312,6 +312,15 @@ const UserNodeData = () => {
                                     distinct
                                 />
                                 <NodeCypherLink
+                                    property='All Shortest Paths to Anything High Value'
+                                    target={objectId}
+                                    baseQuery={
+                                        'MATCH p = allShortestPaths((u:User {objectid: $objectid})-[*1..]->(a {highvalue: True})) WHERE u <> a'
+                                    }
+                                    start={label}
+                                    distinct
+                                />
+                                <NodeCypherLink
                                     property='All Shortest Paths to Anything'
                                     target={objectId}
                                     baseQuery={

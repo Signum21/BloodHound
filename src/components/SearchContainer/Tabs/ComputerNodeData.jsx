@@ -139,7 +139,7 @@ const ComputerNodeData = () => {
                     label={label}
                 />
 
-                <CollapsibleSection header={'Local Admins'}>
+                <CollapsibleSection header={'LOCAL ADMINS'}>
                     <div className={styles.itemlist}>
                         <Table>
                             <thead></thead>
@@ -323,6 +323,15 @@ const ComputerNodeData = () => {
                                     target={objectid}
                                     baseQuery={
                                         'MATCH p = shortestPath((c:Computer {objectid: $objectid})-[r]->(a)) WHERE c <> a'
+                                    }
+                                    start={label}
+                                    distinct
+                                />
+                                <NodeCypherLink
+                                    property='All Shortest Paths to Anything High Value'
+                                    target={objectid}
+                                    baseQuery={
+                                        'MATCH p = allShortestPaths((c:Computer {objectid: $objectid})-[*1..]->(a {highvalue: True})) WHERE c <> a'
                                     }
                                     start={label}
                                     distinct

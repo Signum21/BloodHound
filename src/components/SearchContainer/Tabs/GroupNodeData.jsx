@@ -147,7 +147,7 @@ const GroupNodeData = () => {
 
                 <hr></hr>
 
-                <CollapsibleSection header='Group Membership'>
+                <CollapsibleSection header='GROUP MEMBERSHIP'>
                     <div className={styles.itemlist}>
                         <Table>
                             <thead></thead>
@@ -284,6 +284,15 @@ const GroupNodeData = () => {
                                     target={objectid}
                                     baseQuery={
                                         'MATCH p = shortestPath((g:Group {objectid: $objectid})-[r]->(a)) WHERE g <> a'
+                                    }
+                                    start={label}
+                                    distinct
+                                />
+                                <NodeCypherLink
+                                    property='All Shortest Paths to Anything High Value'
+                                    target={objectid}
+                                    baseQuery={
+                                        'MATCH p = allShortestPaths((g:Group {objectid: $objectid})-[*1..]->(a {highvalue: True})) WHERE g <> a'
                                     }
                                     start={label}
                                     distinct
